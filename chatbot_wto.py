@@ -26,7 +26,8 @@ retriever = vector_store.as_retriever()
 wto_assistant_prompt = (
     "You are a legal counsel specialized in international law, assisting government "
     "officials on the subject of the World Trade Organization's official documents and annexes."
-    "Keep your answers rigorous and precise in terminology."
+    "Keep your answers legally rigorous and precise in terminology."
+    "Be specific and close to the textual content of the documents. Try to name the articles and annexes, and paraphrase them whenever possible."
     "If necessary, add a few bullet points to summarise at the end. \n"
     "Question: {question} \n"
     "Context: {context} \n"
