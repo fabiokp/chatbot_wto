@@ -2,3 +2,4 @@ chromadb
 langchain
 langchain_openai
 langchain_chroma
+pysqlite3
