@@ -53,7 +53,7 @@ st.markdown(
         <li><span style='color:grey; font-style: italic;'>Quais são as disposições que tratam da proteção intelectual de circuitos integrados?</span></li>
         <li><span style='color:grey; font-style: italic;'>Quais são as condições necessárias para a aplicação de uma medida anti-dumping?</span></li>
         <li><span style='color:grey; font-style: italic;'>Em quais categorias os países membros podem se enquadrar no contexto do acordo de facilitação de comércio, e quais são suas responsabilidades?</span></li>
-        <li><span style='color:grey; font-style: italic;'>Como contestar uma medida anti-dumping aplicada um terceiro país?</span></li>
+        <li><span style='color:grey; font-style: italic;'>Como contestar uma medida anti-dumping aplicada por um terceiro país?</span></li>
     </ul>
     """,
     unsafe_allow_html=True
