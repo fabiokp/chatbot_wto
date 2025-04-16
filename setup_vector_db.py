@@ -26,7 +26,7 @@ def metadata_func(record: dict, metadata: dict) -> dict:
     return metadata
 
 # Load JSON documents
-json_file_path = "./simplified_wto_links_with_content.json" # Corrected filename
+json_file_path = "./wto_links_with_content.json" # Corrected filename
 
 loader = JSONLoader(
     file_path=json_file_path,

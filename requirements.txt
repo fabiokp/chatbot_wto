@@ -1,5 +1,4 @@
-chromadb
+chromadb=0.6.3
 langchain
 langchain_openai
 langchain_chroma
-pysqlite3
