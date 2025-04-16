@@ -43,8 +43,8 @@ st.set_page_config(page_title="Consultor Jurídico OMC",
 st.title("🌐 Consultor Jurídico OMC")
 st.markdown(
     """
-    Bem-vindo ao Consultor Jurídico OMC!
-    Esta ferramenta especializada auxilia na interpretação e consulta dos acordos e documentos oficiais da Organização Mundial do Comércio. 
+    Bem-vindo ao Consultor Jurídico OMC.
+    Esta ferramenta especializada auxilia na consulta e interpretação dos acordos e documentos oficiais da Organização Mundial do Comércio. 
     Formule sua pergunta para iniciar a análise.
 
     <span style='color:grey; font-style: italic;'>Exemplos de perguntas:</span>
