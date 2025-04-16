@@ -53,7 +53,7 @@ st.markdown(
         <li><span style='color:grey; font-style: italic;'>Quais documentos compõem o núcleo do arcabouço normativo da OMC?</span></li>
         <li><span style='color:grey; font-style: italic;'>Como se diferencia o tratamento dado ao comércio de serviços em relação ao comércio de bens?</span></li>
         <li><span style='color:grey; font-style: italic;'>Quais disposições tratam da proteção intelectual de circuitos integrados?</span></li>
-        <li><span style='color:grey; font-style: italic;'>Em quais categorias os países membros podem se enquadrar no contexto do acordo de facilitação de comércio?</span></li>
+        <li><span style='color:grey; font-style: italic;'>Em quais categorias os membros podem se enquadrar, no contexto do acordo de facilitação de comércio?</span></li>
         <li><span style='color:grey; font-style: italic;'>Como contestar uma medida anti-dumping aplicada por um terceiro país?</span></li>
     </ul>
     """,
