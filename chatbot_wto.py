@@ -40,10 +40,20 @@ st.set_page_config(page_title="Consultor Jurídico OMC",
 st.title("🌐 Consultor Jurídico OMC")
 st.markdown(
     """
-    Bem-vindo ao Consultor Jurídico OMC. 
+    Bem-vindo ao Consultor Jurídico OMC!
     Esta ferramenta especializada auxilia na interpretação e consulta dos acordos e documentos oficiais da Organização Mundial do Comércio. 
     Formule sua pergunta para iniciar a análise.
-    """
+
+    <span style='color:grey; font-style: italic;'>Exemplos de perguntas:</span>
+    <ul>
+        <li><span style='color:grey; font-style: italic;'>Quais são os documentos que compõem o núcleo do arcabouço normativo da OMC?</span></li>
+        <li><span style='color:grey; font-style: italic;'>Quais são as disposições que tratam da proteção intelectual de circuitos integrados?</span></li>
+        <li><span style='color:grey; font-style: italic;'>Quais são as condições necessárias para a aplicação de uma medida anti-dumping?</span></li>
+        <li><span style='color:grey; font-style: italic;'>Em quais categorias os países membros podem se enquadrar no contexto do acordo de facilitação de comércio, e quais são suas responsabilidades?</span></li>
+        <li><span style='color:grey; font-style: italic;'>Como contestar uma medida anti-dumping aplicada um terceiro país?</span></li>
+    </ul>
+    """,
+    unsafe_allow_html=True
 )
 
 # Inicializar o estado da sessão para o histórico de conversas
@@ -66,7 +76,7 @@ if user_input := st.chat_input("Qual sua dúvida?"):
     with st.chat_message("user"):
         st.markdown(user_input)
 
-    with st.spinner("⏳ Buscando resposta nos documentos oficiais..."):
+    with st.spinner(":books: Buscando resposta nos documentos oficiais..."):
         # Format chat history for context
         history_context = "\n".join([f"{speaker}: {message}" for speaker, message in st.session_state.history])
 
