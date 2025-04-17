@@ -4,6 +4,8 @@ Bem-vindo ao repositório do ChatOMC, um chatbot especializado projetado para au
 
 O protótipo para testes encontra-se disponível em https://chatbot-wto.streamlit.app/.
 
+Este é um projeto pessoal e sem qualquer vínculo com a Organização Mundial do Comércio.
+
 ## 🏛️ Propósito
 
 Esta aplicação utiliza técnicas de Inteligência Artificial Generativa, especificamente um modelo de linguagem grande (LLM) combinado com a arquitetura RAG (Retrieval-Augmented Generation), para fornecer respostas precisas e contextualmente relevantes baseadas nos textos oficiais da OMC. O objetivo é oferecer uma ferramenta de consulta rápida e rigorosa, mantendo a precisão terminológica exigida no campo do direito internacional.
