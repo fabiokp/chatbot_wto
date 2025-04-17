@@ -64,7 +64,7 @@ Em testes preliminares, o Consultor Jurídico OMC demonstrou capacidade de forne
 ### Limitações Atuais e Próximos Passos
 
 *   Expandir a base de conhecimento para incluir um espectro mais amplo de documentos. Um ponto crucial para futuras melhorias é a inclusão das listas de compromissos específicas de cada país membro da OMC; estes documentos detalham as obrigações individuais de cada membro em áreas como serviços e tarifas.
-*   Revisar a etapa de pré-processamento do acervo de documentos.
+*   Revisar a etapa de processamento do acervo de documentos.
 *   Refinar continuamente os prompts e parâmetros do retriever, de modo a otimizar a relevância e a precisão das respostas.
 
 É fundamental lembrar que esta ferramenta é um assistente de consulta e interpretação de textos. Ela não substitui o aconselhamento jurídico profissional e não deve ser usada como única fonte para tomada de decisões legais complexas.
