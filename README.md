@@ -1,6 +1,6 @@
-# 🌐 Consultor Jurídico OMC - Chatbot
+# 🌐 ChatOMC
 
-Bem-vindo ao repositório do Consultor Jurídico OMC, um chatbot especializado projetado para auxiliar funcionários governamentais e especialistas em direito internacional na consulta e interpretação de documentos e anexos oficiais da Organização Mundial do Comércio (OMC).
+Bem-vindo ao repositório do ChatOMC, um chatbot especializado projetado para auxiliar funcionários governamentais e especialistas em direito internacional na consulta e interpretação de documentos e anexos oficiais da Organização Mundial do Comércio (OMC).
 
 O protótipo para testes encontra-se disponível em https://chatbot-wto.streamlit.app/.
 
