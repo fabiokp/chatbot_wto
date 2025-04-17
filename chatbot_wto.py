@@ -8,7 +8,7 @@ from langchain_chroma import Chroma
 from langchain import hub
 
 # Initialize LLM
-llm = init_chat_model("gpt-4.1-mini-2025-04-14", model_provider="openai")
+llm = init_chat_model("gpt-4o-mini", model_provider="openai")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
 
