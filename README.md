@@ -22,7 +22,7 @@ A eficácia do chatbot depende de uma base de conhecimento robusta e bem estrutu
 
 1.  **`scrape_simplified.py`:**
     *   **Propósito:** Este script foi responsável por coletar os textos dos documentos e acordos relevantes da OMC. Ele navegou pelo [portal de documentos legais da OMC](https://www.wto.org/english/docs_e/legal_e/legal_e.htm), extraiu o conteúdo textual e estruturou os dados para prepará-los para o processamento.
-    *   **Processo:** O script catalogou o link de cada um dos documentos oficiais do portal (html ou pdf), extraiu seus textos principais, e os salvou em formato intermediário (JSON) para serem utilizados na próxima etapa.
+    *   **Processo:** O script catalogou o link de cada um dos documentos oficiais do portal (html ou pdf), extraiu seus textos principais, e os salvou em formato intermediário (JSON) para serem utilizados na próxima etapa. Na versão atual foram armazenados 65 documentos, com um total de 275.020 palavras.
 
 2.  **`setup_vector_db.py`:**
     *   **Propósito:** Este script processou os textos coletados pelo `scrape_simplified.py` e populou o banco de dados vetorial ChromaDB.
