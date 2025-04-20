@@ -65,38 +65,49 @@ if "history" not in st.session_state:
     st.session_state.history = []
 
 # Exibir o histórico de conversas usando st.chat_message
-for speaker, message in st.session_state.history:
-    role = "user" if speaker == "Você" else "assistant"
-    with st.chat_message(role):
-        st.markdown(message)
-
-# Placeholder para mensagens temporárias (pode be removed if not needed with chat_input)
-# status_placeholder = st.empty() # Consider removing if chat_input handles loading state implicitly
+# Updated loop to handle new history structure
+for entry in st.session_state.history:
+    if entry["role"] == "user":
+        with st.chat_message("user"):
+            st.markdown(entry["content"])
+    elif entry["role"] == "assistant":
+        with st.chat_message("assistant"):
+            # Combine raw content and sources for display
+            display_content = entry["content"]
+            if entry.get("sources"): # Check if sources exist for this entry
+                 sources_text = "\n\n**Fontes:**\n" + "\n".join(f"- {link}" for link in sorted(list(entry["sources"])))
+                 display_content += sources_text
+            st.markdown(display_content)
 
 # Processar a entrada do usuário e gerar resposta
 if user_input := st.chat_input("Qual sua dúvida?"):
-    # Adicionar a entrada do usuário ao histórico de conversas
+    # Add user message to history (using new structure)
+    st.session_state.history.append({"role": "user", "content": user_input})
     # Display user message immediately
     with st.chat_message("user"):
         st.markdown(user_input)
 
     with st.spinner(":books: Buscando resposta nos documentos oficiais..."):
-        # Format chat history for context
-        history_context = "\n".join([f"{speaker}: {message}" for speaker, message in st.session_state.history])
+        # Format chat history for context (using only raw content)
+        history_context_list = []
+        for entry in st.session_state.history:
+            speaker = "User" if entry["role"] == "user" else "Assistant"
+            history_context_list.append(f"{speaker}: {entry['content']}") # Use only 'content'
+        history_context = "\n".join(history_context_list)
 
         # Recuperar documentos relevantes
         retrieved_docs = retriever.invoke(user_input)
         document_context = "\n\n".join([doc.page_content for doc in retrieved_docs])
 
         # Extract unique source links from metadata
-        sources = set() # Use a set to store unique links
+        current_sources = set() # Use a set to store unique links for the current turn
         if retrieved_docs:
             for doc in retrieved_docs:
                 if doc.metadata:
                     link = doc.metadata.get('link') # Assuming 'link' holds the URL
                     # Ensure link is present and a non-empty string
                     if link and isinstance(link, str) and link.strip():
-                        sources.add(link.strip())
+                        current_sources.add(link.strip())
 
         # Combine history and document context
         combined_context = f"Conversation History:\n{history_context}\n\nRetrieved Documents:\n{document_context}"
@@ -107,22 +118,23 @@ if user_input := st.chat_input("Qual sua dúvida?"):
         ).to_messages()
 
         response = llm.invoke(example_messages)
-        assistant_response_content = response.content
+        assistant_raw_content = response.content # Store the raw LLM response
 
-        # Append sources to the response content if any were found
-        if sources:
-            # Format sources as a simple list of links
-            sources_text = "\n\n**Fontes:**\n" + "\n".join(f"- {link}" for link in sorted(list(sources)))
-            assistant_response_content += sources_text
+        # Prepare content for display (raw + current sources)
+        assistant_display_content = assistant_raw_content
+        if current_sources:
+            sources_text = "\n\n**Fontes:**\n" + "\n".join(f"- {link}" for link in sorted(list(current_sources)))
+            assistant_display_content += sources_text
         # else: # Optionally add a message if no sources are found
-        #     assistant_response_content += "\n\n(Nenhuma fonte específica identificada no contexto recuperado)"
+        #     assistant_display_content += "\n\n(Nenhuma fonte específica identificada no contexto recuperado)"
 
-        # Adicionar a resposta do modelo ao histórico de conversas
         # Display assistant message with sources
         with st.chat_message("assistant"):
-            st.markdown(assistant_response_content) # Display content with sources
+            st.markdown(assistant_display_content) # Display content with sources
 
-        # Update history after displaying messages
-        st.session_state.history.append(("Você", user_input))
-        # Store the response *with* sources in history
-        st.session_state.history.append(("Assistente OMC", assistant_response_content))
+        # Add assistant message to history (storing raw content and sources separately)
+        st.session_state.history.append({
+            "role": "assistant",
+            "content": assistant_raw_content, # Store raw content
+            "sources": current_sources # Store sources set
+        })
